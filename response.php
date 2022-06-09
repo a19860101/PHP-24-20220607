@@ -15,7 +15,9 @@
     // echo $_POST['content'];
     // echo '<br>';
 
-    extract($_POST);
+    // extract($_POST);
+    // extract($_GET);
+    extract($_REQUEST);
     echo $username;
     echo '<br>';
     echo $pw;

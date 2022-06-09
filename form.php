@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- 表單都是使用post方法傳遞，除了搜尋 -->
-    <form action="response.php" method="post">
+    <form action="response.php" method="get">
         <div>
             <label for="">使用者名稱</label>
             <input type="text" name="username">
