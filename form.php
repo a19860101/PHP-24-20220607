@@ -38,6 +38,15 @@
             <input type="radio" name="gender" value="女">
             <label for="">女</label>
         </div>
+        <div>
+            <label for="">專長</label>
+            <input type="checkbox" name="skill[]" value="平面設計">
+            <label for="">平面設計</label>
+            <input type="checkbox" name="skill[]" value="網頁前端">
+            <label for="">網頁前端</label>
+            <input type="checkbox" name="skill[]" value="網站後端">
+            <label for="">網站後端</label>
+        </div>
         <input type="submit" value="送出">
     </form>
 </body>
