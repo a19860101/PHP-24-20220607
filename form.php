@@ -47,6 +47,10 @@
             <input type="checkbox" name="skill[]" value="網站後端">
             <label for="">網站後端</label>
         </div>
+        <div>
+            <label for="">內容</label>
+            <textarea name="content" id="" cols="30" rows="10"></textarea>
+        </div>
         <input type="submit" value="送出">
     </form>
 </body>

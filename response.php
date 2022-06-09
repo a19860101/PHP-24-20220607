@@ -1,2 +1,32 @@
 <?php
-    print_r($_POST);
+    // print_r($_POST);
+    // echo $_POST['username'];
+    // echo '<br>';
+    // echo $_POST['pw'];
+    // echo '<br>';
+    // echo $_POST['birth'];
+    // echo '<br>';
+    // echo $_POST['gender'];
+    // echo '<br>';
+    // echo $_POST['edu'];
+    // echo '<br>';
+    // echo implode(',',$_POST['skill']);
+    // echo '<br>';
+    // echo $_POST['content'];
+    // echo '<br>';
+
+    extract($_POST);
+    echo $username;
+    echo '<br>';
+    echo $pw;
+    echo '<br>';
+    echo $birth;
+    echo '<br>';
+    echo $gender;
+    echo '<br>';
+    echo $edu;
+    echo '<br>';
+    echo implode(',',$skill);
+    echo '<br>';
+    echo $content;
+    echo '<br>';
