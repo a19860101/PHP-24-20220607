@@ -17,6 +17,27 @@
             <label for="">密碼</label>
             <input type="password" name="pw">
         </div>
+        <div>
+            <label for="">出生年月日</label>
+            <input type="date" name="birth">
+        </div>
+        <div>
+            <label for="">學歷</label>
+            <select name="edu" id="">
+                <option value="國小">國小</option>
+                <option value="國中">國中</option>
+                <option value="高中職">高中職</option>
+                <option value="大專院校">大專院校</option>
+                <option value="研究所以上">研究所以上</option>
+            </select>
+        </div>
+        <div>
+            <label for="">性別</label>
+            <input type="radio" name="gender" value="男">
+            <label for="">男</label>
+            <input type="radio" name="gender" value="女">
+            <label for="">女</label>
+        </div>
         <input type="submit" value="送出">
     </form>
 </body>
