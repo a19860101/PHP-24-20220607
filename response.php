@@ -17,8 +17,17 @@
 
     // extract($_POST);
     // extract($_GET);
+
+    function check($input){
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+    }
+
     extract($_REQUEST);
-    echo $username;
+   
+    echo check($username);
     echo '<br>';
     echo $pw;
     echo '<br>';
