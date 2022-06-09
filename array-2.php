@@ -18,6 +18,31 @@
     // echo implode('@@@',$beans); 
 
     // explode() 字串->陣列
-    $s = '拿鐵,美式,卡布奇諾';
-    $s_array = explode(',',$s);
-    print_r($s_array);
+    // $s = '拿鐵,美式,卡布奇諾';
+    // $s_array = explode(',',$s);
+    // print_r($s_array);
+
+    // extract() 解構
+
+    // echo $beans['name'];
+    // echo $beans['area'];
+    // echo $beans['shape'];
+
+    extract($beans);
+    echo $name;
+    echo $area;
+    echo $shape;
+
+    // compact() 緊湊
+    $coffee = '拿鐵';
+    $price = '120';
+    $brand = '星巴克';
+    // $c = [$coffee, $price, $brand];
+    // $c = compact('coffee','price','brand');
+    $c = [
+            'coffee' => $coffee,
+            'price' => $price,
+            'brand' => $brand
+    ];
+
+    print_r($c);
