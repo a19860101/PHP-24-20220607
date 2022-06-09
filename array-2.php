@@ -53,5 +53,21 @@
 
     // in_array() 判斷陣列內資料是否存在
 
-    var_dump(in_array('拿鐵',$drinks));
-    var_dump(in_array('麗春紅茶',$drinks));
+    // var_dump(in_array('拿鐵',$drinks));
+    // var_dump(in_array('麗春紅茶',$drinks));
+
+    // 
+
+    $array = ['banana','apple','dog','cat'];
+    // sort($array);
+    // rsort($array);
+    // print_r($array);
+
+    // ksort($beans);
+    // krsort($beans);
+
+    // asort($beans);
+    // arsort($beans);
+
+    shuffle($beans);
+    print_r($beans);
