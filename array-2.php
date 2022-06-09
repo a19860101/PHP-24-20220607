@@ -29,9 +29,9 @@
     // echo $beans['shape'];
 
     extract($beans);
-    echo $name;
-    echo $area;
-    echo $shape;
+    // echo $name;
+    // echo $area;
+    // echo $shape;
 
     // compact() 緊湊
     $coffee = '拿鐵';
@@ -45,4 +45,13 @@
             'brand' => $brand
     ];
 
-    print_r($c);
+    // print_r($c);
+
+    // is_array() 判斷是否為陣列
+    // var_dump(is_array($beans));
+    // var_dump(is_array($coffee));
+
+    // in_array() 判斷陣列內資料是否存在
+
+    var_dump(in_array('拿鐵',$drinks));
+    var_dump(in_array('麗春紅茶',$drinks));
