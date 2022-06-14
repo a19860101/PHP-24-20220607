@@ -4,8 +4,7 @@
     $result = mysqli_query($db,$sql);
     // $data = mysqli_fetch_assoc($result);
     $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
-
-    var_dump($datas);
+    print_r($datas);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +13,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table,td,th {
+            border: 1px solid #888;
+            border-collapse: collapse;
+        }
+        td,th {
+            padding: 15px;
+        }
+    </style>
 </head>
 <body>
-    
+    <table>
+        <tr>
+            <th>#</th>
+            <th>帳號</th>
+            <th>密碼</th>
+            <th>生日</th>
+            <th>學歷</th>
+            <th>性別</th>
+            <th>專長</th>
+            <th>內容</th>
+        </tr>
+        <?php
+            foreach($datas as $data){
+                echo '<tr>';
+                echo "<td>{$data['id']}</td>";
+                echo "<td>{$data['username']}</td>";
+                echo "<td>{$data['pw']}</td>";
+                echo "<td>{$data['birth']}</td>";
+                echo "<td>{$data['edu']}</td>";
+                echo "<td>{$data['gender']}</td>";
+                echo "<td>{$data['skill']}</td>";
+                echo "<td>{$data['content']}</td>";
+                echo '</tr>';
+            }
+        ?>
+    </table>
 </body>
 </html>
