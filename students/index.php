@@ -49,6 +49,7 @@
                 <td><?php echo $data['content']; ?></td>
                 <td>
                     <form action="delete.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
                         <input type="submit" value="刪除" onclick="return confirm('確認刪除？')">
                     </form>
                 </td>
