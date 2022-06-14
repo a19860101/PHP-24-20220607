@@ -4,7 +4,7 @@
     $result = mysqli_query($db,$sql);
     // $data = mysqli_fetch_assoc($result);
     $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    print_r($datas);
+    // print_r($datas);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,19 +35,33 @@
             <th>專長</th>
             <th>內容</th>
         </tr>
+        <?php foreach($datas as $data){ ?>
+            <tr>
+                <td><?php echo $data['id']; ?></td>
+                <td><?php echo $data['username']; ?></td>
+                <td><?php echo $data['pw']; ?></td>
+                <td><?php echo $data['birth']; ?></td>
+                <td><?php echo $data['edu']; ?></td>
+                <td><?php echo $data['gender']; ?></td>
+                <td><?php echo $data['skill']; ?></td>
+                <td><?php echo $data['content']; ?></td>
+            </tr>
+        <?php } ?>
+
+
         <?php
-            foreach($datas as $data){
-                echo '<tr>';
-                echo "<td>{$data['id']}</td>";
-                echo "<td>{$data['username']}</td>";
-                echo "<td>{$data['pw']}</td>";
-                echo "<td>{$data['birth']}</td>";
-                echo "<td>{$data['edu']}</td>";
-                echo "<td>{$data['gender']}</td>";
-                echo "<td>{$data['skill']}</td>";
-                echo "<td>{$data['content']}</td>";
-                echo '</tr>';
-            }
+            // foreach($datas as $data){
+            //     echo '<tr>';
+            //     echo "<td>{$data['id']}</td>";
+            //     echo "<td>{$data['username']}</td>";
+            //     echo "<td>{$data['pw']}</td>";
+            //     echo "<td>{$data['birth']}</td>";
+            //     echo "<td>{$data['edu']}</td>";
+            //     echo "<td>{$data['gender']}</td>";
+            //     echo "<td>{$data['skill']}</td>";
+            //     echo "<td>{$data['content']}</td>";
+            //     echo '</tr>';
+            // }
         ?>
     </table>
 </body>
