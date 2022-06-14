@@ -1,5 +1,10 @@
 <?php
-    echo $_GET['id'];
+    include('db.php');
+    extract($_REQUEST);
+    $sql = "SELECT * FROM students WHERE id = {$id}";
+    $result = mysqli_query($db,$sql);
+    $data = mysqli_fetch_assoc($result);
+    var_dump($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,15 +18,15 @@
     <form action="update.php" method="post">
         <div>
             <label for="">使用者名稱</label>
-            <input type="text" name="username">
+            <input type="text" name="username" value="<?php echo $data['username'];?>">
         </div>
         <div>
             <label for="">密碼</label>
-            <input type="password" name="pw">
+            <input type="password" name="pw" value="<?php echo $data['pw'];?>">
         </div>
         <div>
             <label for="">出生年月日</label>
-            <input type="date" name="birth">
+            <input type="date" name="birth" value="<?php echo $data['birth'];?>">
         </div>
         <div>
             <label for="">學歷</label>
@@ -51,9 +56,10 @@
         </div>
         <div>
             <label for="">內容</label>
-            <textarea name="content" id="" cols="30" rows="10"></textarea>
+            <textarea name="content" id="" cols="30" rows="10"><?php echo $data['content'];?></textarea>
         </div>
         <input type="submit" value="更新">
+        <input type="button" value="取消" onclick="history.back()">
     </form>
 </body>
 </html>
