@@ -2,8 +2,8 @@
     include('db.php');
     $sql = 'SELECT * FROM students';
     $result = mysqli_query($db,$sql);
-    $data = mysqli_fetch_assoc($result);
-    $datas = mysqli_fetch_all($result);
+    // $data = mysqli_fetch_assoc($result);
+    $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
     var_dump($datas);
 ?>
