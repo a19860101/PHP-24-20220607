@@ -1,9 +1,15 @@
 <?php
     include('db.php');
     extract($_REQUEST);
-    $sql = "SELECT * FROM students WHERE id = {$id}";
-    $result = mysqli_query($db,$sql);
-    $data = mysqli_fetch_assoc($result);
+    // $sql = "SELECT * FROM students WHERE id = {$id}";
+    // $result = mysqli_query($db,$sql);
+    // $data = mysqli_fetch_assoc($result);
+
+    $sql = "SELECT * FROM students WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param('i',$id);
+    $stmt->execute();
+    $data = $stmt->get_result()->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
