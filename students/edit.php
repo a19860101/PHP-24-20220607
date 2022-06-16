@@ -45,12 +45,35 @@
             <label for="">女</label>
         </div>
         <div>
+            <div>
+                <hr>
+                <?php
+                    $skill = $data['skill'];
+                    echo $skill
+                    // $result = strpos($skill,'網站後端');
+                    // echo $result;
+                    // $s = 'apple,banana';
+                    // echo strpos($s,'z');
+                    // var_dump( strpos($s,'helo') );
+                ?>
+                <hr>
+            </div>
             <label for="">專長</label>
-            <input type="checkbox" name="skill[]" value="平面設計">
+            <input type="checkbox" name="skill[]" value="平面設計" 
+                
+                <?php echo strpos($data['skill'],'平面設計') >= 0 ? 'checked':'';?>
+                
+                >
             <label for="">平面設計</label>
-            <input type="checkbox" name="skill[]" value="網頁前端">
+            <input type="checkbox" name="skill[]" value="網頁前端"
+
+                <?php echo strpos($data['skill'],'網頁前端') >= 0 ? 'checked':'';?>>
+
             <label for="">網頁前端</label>
-            <input type="checkbox" name="skill[]" value="網站後端">
+            <input type="checkbox" name="skill[]" value="網站後端"
+
+                <?php echo strpos($data['skill'],'網站後端') >= 0 ? 'checked':'';?>>
+
             <label for="">網站後端</label>
         </div>
         <div>
