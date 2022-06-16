@@ -1,7 +1,12 @@
 <?php
     include('db.php');
     extract($_REQUEST);
-    $skill = implode(',',$skill);
+    
+    if(!isset($skill)){
+        $skill = '';
+    }else{
+        $skill = implode(',',$skill);
+    }
 
     $sql = "UPDATE students SET
             username = '$username',
