@@ -1,10 +1,15 @@
 <?php
     include('db.php');
+    
+    // $sql = 'SELECT * FROM students';
+    // $result = mysqli_query($db,$sql);
+    // $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
     $sql = 'SELECT * FROM students';
-    $result = mysqli_query($db,$sql);
-    // $data = mysqli_fetch_assoc($result);
-    $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    // print_r($datas);
+    // $result = $db->query($sql);
+    // $datas = $result->fetch_all(MYSQLI_ASSOC);
+
+    $datas = $db->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
