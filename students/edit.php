@@ -76,37 +76,38 @@
             <label for="">網站後端</label>
         </div>
         <hr>
-        <div>
+        <!-- <div>
             <div>
                 <?php
-                    $skill = explode(',',$data['skill']);
+                    // $skill = explode(',',$data['skill']);
                 ?>
             </div>
             <label for="">專長</label>
             <input type="checkbox" name="skill[]" value="平面設計" 
                 
-                <?php echo in_array('平面設計',$skill) ? 'checked':''; ?>
+                <?php //echo in_array('平面設計',$skill) ? 'checked':''; ?>
                 
                 >
             <label for="">平面設計</label>
             <input type="checkbox" name="skill[]" value="網頁前端"
 
-                <?php echo in_array('網頁前端',$skill) ? 'checked':''; ?>
+                <?php //echo in_array('網頁前端',$skill) ? 'checked':''; ?>
                 >
 
             <label for="">網頁前端</label>
             <input type="checkbox" name="skill[]" value="網站後端"
 
-                <?php echo in_array('網站後端',$skill) ? 'checked':''; ?>
+                <?php //echo in_array('網站後端',$skill) ? 'checked':''; ?>
                 >
 
             <label for="">網站後端</label>
-        </div>
+        </div> -->
         <hr>
         <div>
             <label for="">內容</label>
             <textarea name="content" id="" cols="30" rows="10"><?php echo $data['content'];?></textarea>
         </div>
+        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
         <input type="submit" value="更新">
         <input type="button" value="取消" onclick="history.back()">
     </form>
