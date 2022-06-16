@@ -39,9 +39,9 @@
         </div>
         <div>
             <label for="">性別</label>
-            <input type="radio" name="gender" value="男">
+            <input type="radio" name="gender" value="男" <?php echo $data['gender']=='男'?'checked':''; ?>>
             <label for="">男</label>
-            <input type="radio" name="gender" value="女">
+            <input type="radio" name="gender" value="女" <?php echo $data['gender']=='女'?'checked':''; ?>>
             <label for="">女</label>
         </div>
         <div>
