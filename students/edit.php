@@ -4,7 +4,6 @@
     $sql = "SELECT * FROM students WHERE id = {$id}";
     $result = mysqli_query($db,$sql);
     $data = mysqli_fetch_assoc($result);
-    var_dump($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,11 +30,11 @@
         <div>
             <label for="">學歷</label>
             <select name="edu" id="">
-                <option value="國小">國小</option>
-                <option value="國中">國中</option>
-                <option value="高中職">高中職</option>
-                <option value="大專院校">大專院校</option>
-                <option value="研究所以上">研究所以上</option>
+                <option value="國小" <?php if($data['edu'] == '國小'){echo 'selected';} ?>>國小</option>
+                <option value="國中" <?php if($data['edu'] == '國中'){echo 'selected';} ?>>國中</option>
+                <option value="高中職" <?php if($data['edu'] == '高中職'){echo 'selected';} ?>>高中職</option>
+                <option value="大專院校" <?php if($data['edu'] == '大專院校'){echo 'selected';} ?>>大專院校</option>
+                <option value="研究所以上" <?php if($data['edu'] == '研究所以上'){echo 'selected';} ?>>研究所以上</option>
             </select>
         </div>
         <div>
