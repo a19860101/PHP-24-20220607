@@ -31,7 +31,13 @@
         //若資料夾不存在就建立資料夾
     }
     if($error == 0){
-        move_uploaded_file($tmp_name,$target);
+        if(move_uploaded_file($tmp_name,$target)){
+            echo '<script>alert("上傳成功")</script>';
+        }else{
+            echo '<script>alert("上傳失敗")</script>';
+        }
+        
     }
 
-    header('location:form.php');
+    // header('location:form.php');
+    header('Refresh:0;url=form.php');
