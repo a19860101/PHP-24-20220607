@@ -22,6 +22,19 @@
         }
         return $data;
     }
+    function store($request){
+        extract($request);
+        $skill = implode(',',$skill);
+
+        $sql = 'INSERT INTO students(username,pw,birth,edu,gender,skill,content)VALUES(?,?,?,?,?,?,?)';
+        
+        try {
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$username,$pw,$birth,$edu,$gender,$skill,$content]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
     function edit($request){
         extract($request);
         $sql = "SELECT * FROM students WHERE id = ?";

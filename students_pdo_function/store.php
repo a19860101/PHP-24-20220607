@@ -1,15 +1,6 @@
 <?php
-    include('db.php');
-    extract($_REQUEST);
-    $skill = implode(',',$skill);
-
-    $sql = 'INSERT INTO students(username,pw,birth,edu,gender,skill,content)VALUES(?,?,?,?,?,?,?)';
+    include('function.php');
     
-    try {
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$username,$pw,$birth,$edu,$gender,$skill,$content]);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
+    store($_REQUEST);
 
 	header('location:index.php');
