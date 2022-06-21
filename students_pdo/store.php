@@ -4,7 +4,12 @@
     $skill = implode(',',$skill);
 
     $sql = 'INSERT INTO students(username,pw,birth,edu,gender,skill,content)VALUES(?,?,?,?,?,?,?)';
-	$stmt = $pdo->prepare($sql);
-	$stmt->execute([$username,$pw,$birth,$edu,$gender,$skill,$content]);
+    
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$username,$pw,$birth,$edu,$gender,$skill,$content]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
 
 	header('location:index.php');

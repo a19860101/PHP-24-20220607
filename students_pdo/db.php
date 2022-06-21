@@ -13,15 +13,14 @@
     try {
         $pdo = new PDO($dsn, $db_user,$db_pw);
 
-        //不主動報錯(預設值)
+        //不主動報錯
         // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_SILENT);
 
         //主動報錯
         // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
         
         //主動例外
-        // $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 
     }catch(PDOExceiption $e){

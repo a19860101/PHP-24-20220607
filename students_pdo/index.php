@@ -4,7 +4,11 @@
     $sql = 'SELECT * FROM students';
     // $result = $pdo->query($sql);
     // $datas = $result->fetchAll();
-    $datas = $pdo->query($sql)->fetchAll();
+    try {
+        $datas = $pdo->query($sql)->fetchAll();
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
 
 ?>
 <!DOCTYPE html>
