@@ -2,12 +2,13 @@
     include('db.php');
     extract($_REQUEST);
 
-    // $sql = "DELETE FROM students WHERE id = {$id}";
-    // mysqli_query($db,$sql);
 
     $sql = 'DELETE FROM students WHERE id = ?';
-    $stmt = $db->prepare($sql);
-    $stmt->bind_param('i',$id);
-    $stmt->execute();
+    try{
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
 
     header('location:index.php');
