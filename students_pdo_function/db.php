@@ -1,6 +1,5 @@
 <?php
     function pdo(){
-
         $db_host = 'localhost';
         $db_user = 'admin';
         $db_pw = 'admin';

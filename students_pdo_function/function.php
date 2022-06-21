@@ -10,3 +10,27 @@
         }
         return $datas;
     }
+    function show($request){
+        extract($request);
+        $sql = "SELECT * FROM students WHERE id = ?";
+        try{
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$id]);
+            $data = $stmt->fetch();
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+        return $data;
+    }
+    function edit($request){
+        extract($request);
+        $sql = "SELECT * FROM students WHERE id = ?";
+        try{
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$id]);
+            $data = $stmt->fetch();
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+        return $data;
+    }
