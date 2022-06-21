@@ -47,3 +47,29 @@
         }
         return $data;
     }
+    function update($request){
+        extract($request);
+    
+        if(!isset($skill)){
+            $skill = '';
+        }else{
+            $skill = implode(',',$skill);
+        }
+        $sql = 'UPDATE students SET username=?,pw=?,birth=?,gender=?,edu=?,skill=?,content=? WHERE id =?';
+        try{
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$username,$pw,$birth,$gender,$edu,$skill,$content,$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+    function delete($request){
+        extract($request);
+        $sql = 'DELETE FROM students WHERE id = ?';
+        try{
+            $stmt = pdo()->prepare($sql);
+            $stmt->execute([$id]);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
