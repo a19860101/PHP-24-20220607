@@ -19,11 +19,18 @@
     // echo $type;
     // echo '<br>';
     extract($_FILES['img']);
+
+    $img_name = md5(time());
+    $ext = pathinfo($name,PATHINFO_EXTENSION);
+    $fullname = $img_name.'.'.$ext;
+
     $folder = 'images/';
-    $target = $folder.$name;
+    $target = $folder.$fullname;
     if(!is_dir($folder)){
         mkdir($folder);
     }
     if($error == 0){
         move_uploaded_file($tmp_name,$target);
     }
+
+    header('location:form.php');
