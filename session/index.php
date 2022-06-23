@@ -46,5 +46,8 @@
             }
         ?>
     </div>
+    <div>
+        <a href="delete_session.php">移除session</a>
+    </div>
 </body>
 </html>
