@@ -25,7 +25,7 @@
     <div>
         <a href="form.php">上傳檔案</a>
     </div>
-    <div>目前共有<?php //echo $img_num;?>張圖片</div>
+    <div>目前共有<?php echo count($imgs);?>張圖片</div>
     <?php
         foreach($imgs as $img){
     ?>
