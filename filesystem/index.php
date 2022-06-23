@@ -19,9 +19,14 @@
     <?php
         $imgs = glob('images/*');
         // print_r($imgs);
+        $img_num = count($imgs);
+    ?>
+    <div>目前共有<?php echo $img_num;?>張圖片</div>
+    <?php
         foreach($imgs as $img){
     ?>
     <div>
+        
         <img src="<?php echo $img;?> " width="100">
         <form action="" method="post">
             <input type="hidden" name="img" value="<?php echo $img;?>">
