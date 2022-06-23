@@ -11,13 +11,36 @@
 </head>
 <body>
     <form action="create_session.php" method="post">
-        <input type="text" name="title">
+        <div>
+            <label for="">title</label>
+            <input type="text" name="title">
+        </div>
+        <div>
+            <label for="">email</label>
+            <input type="text" name="email">
+        </div>
+        <div>
+            <label for="">phone</label>
+            <input type="text" name="phone">
+        </div>
         <input type="submit" value="建立session">
     </form>
     <div>
         <?php 
-            if(isset($_SESSION['TITLE'])){
-                echo $_SESSION['TITLE'];
+            if(isset($_SESSION['DATA'])){
+                // print_r($_SESSION['DATA']);
+                extract($_SESSION['DATA']);
+                echo $title;
+                echo '<br>';
+                echo $email;
+                echo '<br>';
+                echo $phone;
+
+                // echo $_SESSION['DATA']['title'];
+                // echo '<br>';
+                // echo $_SESSION['DATA']['email'];
+                // echo '<br>';
+                // echo $_SESSION['DATA']['phone'];
             }else{
                 echo 'session不存在或尚未啟動';
             }
