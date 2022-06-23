@@ -24,6 +24,14 @@
     $ext = pathinfo($name,PATHINFO_EXTENSION); //取得副檔名
     $fullname = $img_name.'.'.$ext; //合併檔名+副檔名
 
+    //判斷圖片格式
+    if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'png'){
+        echo '<script>alert("請上傳正確的圖片格式")</script>';
+        header('refresh:0;url=form.php');
+        return ;
+    }
+
+
     $folder = 'images/'; //上傳路徑
     $target = $folder.$fullname; // 目標路徑
     if(!is_dir($folder)){
