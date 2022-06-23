@@ -1,28 +1,16 @@
 <?php
-    // var_dump($_FILES);
-    // $name = $_FILES['img']['name'];
-    // $size = $_FILES['img']['size'];
-    // $tmp_name = $_FILES['img']['tmp_name'];
-    // $error = $_FILES['img']['error'];
-    // $full_path = $_FILES['img']['full_path'];
-    // $type = $_FILES['img']['type'];
-    // echo $name;
-    // echo '<br>';
-    // echo $size;
-    // echo '<br>';
-    // echo $tmp_name;
-    // echo '<br>';
-    // echo $error;
-    // echo '<br>';
-    // echo $full_path;
-    // echo '<br>';
-    // echo $type;
-    // echo '<br>';
+    include('db.php');
     extract($_FILES['img']);
-
+    extract($_REQUEST);
+    
     $img_name = md5(time()); //建立亂數檔名
     $ext = pathinfo($name,PATHINFO_EXTENSION); //取得副檔名
     $fullname = $img_name.'.'.$ext; //合併檔名+副檔名
+
+    if($title == ''){
+        $title = $name;
+    }
+
 
     //判斷圖片格式
     if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'png'){
@@ -39,9 +27,13 @@
         mkdir($folder);
         //若資料夾不存在就建立資料夾
     }
+
+    $sql = 'INSERT INTO galleries(title, name, created_at)VALUES(?,?,?)';
+    $stmt = pdo()->prepare($sql);
     switch($error){
         case 0:
             if(move_uploaded_file($tmp_name,$target)){
+                $stmt->execute([$title,$fullname,now()]);
                 echo '<script>alert("上傳成功")</script>';
             }else{
                 echo '<script>alert("上傳失敗")</script>';
@@ -73,4 +65,4 @@
     }
 
     // header('location:form.php');
-    header('Refresh:0;url=index.php');
+    // header('Refresh:0;url=index.php');
