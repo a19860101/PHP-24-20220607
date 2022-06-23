@@ -41,7 +41,7 @@
     }
     switch($error){
         case 0:
-            if(move_uploaded_file($tmp_name,$target)){
+            if(move_uploaded_file($tmp_name,$name)){
                 echo '<script>alert("上傳成功")</script>';
             }else{
                 echo '<script>alert("上傳失敗")</script>';
@@ -50,6 +50,7 @@
         case 1:
             echo '上傳檔案過大(伺服器限制)';
             break;
+        // 不會顯示出來 會直接報錯
         case 2:
             echo '上傳檔案過大(表單限制)';
             break;
