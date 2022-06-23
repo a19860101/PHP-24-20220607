@@ -1,3 +1,9 @@
+<?php
+    if(isset($_POST['del'])){
+        // echo $_POST['img'];
+        unlink($_POST['img']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +21,13 @@
         // print_r($imgs);
         foreach($imgs as $img){
     ?>
-    <img src="<?php echo $img;?> " width="100">
+    <div>
+        <img src="<?php echo $img;?> " width="100">
+        <form action="" method="post">
+            <input type="hidden" name="img" value="<?php echo $img;?>">
+            <input type="submit" value="刪除圖片" name="del" onclick="return confirm('確認刪除?')">
+        </form>
+    </div>
     <?php } ?>
 </body>
 </html>
