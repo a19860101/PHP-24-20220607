@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,5 +14,14 @@
         <input type="text" name="title">
         <input type="submit" value="建立session">
     </form>
+    <div>
+        <?php 
+            if(isset($_SESSION['TITLE'])){
+                echo $_SESSION['TITLE'];
+            }else{
+                echo 'session不存在或尚未啟動';
+            }
+        ?>
+    </div>
 </body>
 </html>
