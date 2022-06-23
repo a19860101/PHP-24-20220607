@@ -41,7 +41,7 @@
     }
     switch($error){
         case 0:
-            if(move_uploaded_file($tmp_name,$name)){
+            if(move_uploaded_file($tmp_name,$target)){
                 echo '<script>alert("上傳成功")</script>';
             }else{
                 echo '<script>alert("上傳失敗")</script>';
@@ -73,4 +73,4 @@
     }
 
     // header('location:form.php');
-    header('Refresh:0;url=form.php');
+    header('Refresh:0;url=index.php');
