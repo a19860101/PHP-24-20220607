@@ -2,7 +2,7 @@
     include('db.php');
     extract($_FILES['img']);
     extract($_REQUEST);
-    
+
     $img_name = md5(time()); //建立亂數檔名
     $ext = pathinfo($name,PATHINFO_EXTENSION); //取得副檔名
     $fullname = $img_name.'.'.$ext; //合併檔名+副檔名
@@ -65,4 +65,4 @@
     }
 
     // header('location:form.php');
-    // header('Refresh:0;url=index.php');
+    header('Refresh:0;url=index.php');
