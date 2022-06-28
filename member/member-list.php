@@ -35,9 +35,9 @@
                         </td>
                         <td>
                             <?php if($user['role']==0){ ?>
-                                <a href="#" class="btn btn-danger btn-sm">取消管理員</a>
+                                <a href="changeRole.php?role=<?php echo $user['role'];?>&id=<?php echo $user['id'];?>" class="btn btn-danger btn-sm">取消管理員</a>
                             <?php }else{ ?>
-                                <a href="#" class="btn btn-success btn-sm">設定管理員</a>
+                                <a href="changeRole.php?role=<?php echo $user['role'];?>&id=<?php echo $user['id'];?>" class="btn btn-success btn-sm">設定管理員</a>
                             <?php } ?>
                         </td>
                     </tr>
