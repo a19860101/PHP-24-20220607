@@ -36,6 +36,9 @@
                 case 1:
                     echo '請填入帳號或密碼';
                     break;
+                case 2:
+                    echo '帳號已被使用';
+                    break;
             }
             echo '</div>'; 
         }   
