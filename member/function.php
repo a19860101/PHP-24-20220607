@@ -27,3 +27,26 @@
         //     return 0;
         // }
     }
+    function auth($request){
+        session_start();
+        extract($request);
+        $sql = 'SELECT * FROM users WHERE email = ?';
+        $stmt = pdo()->prepare($sql);
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
+        
+        if(!$user){
+            echo '<script>alert("Email不存在，請重新登入或註冊")</script>';
+            header('refresh:0;url=index.php');
+            return ;
+        }
+
+        if(password_verify($pw,$user['pw'])){
+            $_SESSION['AUTH'] = $user;
+            echo '<script>alert("登入成功")</script>';
+            header('refresh:0;url=index.php');
+        }else{
+            echo '<script>alert("帳號或密碼錯誤")</script>';
+            header('refresh:0;url=login.php');
+        }
+    }
