@@ -50,3 +50,8 @@
             header('refresh:0;url=login.php');
         }
     }
+    function index(){
+        $sql = 'SELECT * FROM users';
+        $result = pdo()->query($sql)->fetchAll();
+        return $result;
+    }
