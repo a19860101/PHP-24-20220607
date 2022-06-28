@@ -27,5 +27,19 @@
             </div>
         </div>
     </div>
+    
+    
+    <?php 
+        if(isset($_GET['error'])){ 
+            echo '<div class="alert bg-danger mx-3 fixed-bottom">';
+            switch($_GET['error']){
+                case 1:
+                    echo '請填入帳號或密碼';
+                    break;
+            }
+            echo '</div>'; 
+        }   
+    ?>
+    
 </body>
 </html>
