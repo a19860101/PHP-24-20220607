@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-6">
                 <h2>註冊會員</h2>
-                <form action="" method="post">
+                <form action="store.php" method="post">
                     <div class="mb-3">
                         <label for="" class="form-label">Email</label>
                         <input type="text" name="email" class="form-control">
