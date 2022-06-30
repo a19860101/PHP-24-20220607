@@ -9,10 +9,12 @@
 
     $alen = new Test;
     
-    // $alen->name = 'alen';
+    $alen->name = 'alen';
     // $alen->mail = 'asdf@gmail.com';
-    $alen->run();
+    // $alen->run();
     // var_dump($alen);
+
+    echo $alen->name;
 
     /* 
         private 只可用在自己的類別，無法在實體中使用
