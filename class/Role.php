@@ -2,6 +2,7 @@
     class Role {
         // 屬性
         private $name = 'John Doe';
+        protected $level = 0;
         public $gender;
 
         // 方法
