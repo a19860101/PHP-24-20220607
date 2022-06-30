@@ -1,5 +1,6 @@
 <?php
     include('function.php');
+    denied();
     $users = index();
 ?>
 <!DOCTYPE html>

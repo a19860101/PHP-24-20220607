@@ -11,9 +11,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <?php if(isset($_SESSION['AUTH']) && $_SESSION['AUTH']['role'] == 0){ ?>
                 <li class="nav-item">
                     <a href="member-list.php" class="nav-link">會員列表</a>
                 </li>
+                <?php } ?>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <?php if(isset($_SESSION['AUTH'])){ ?>
