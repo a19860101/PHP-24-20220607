@@ -35,10 +35,14 @@
                             ?>
                         </td>
                         <td>
+                            <?php if($_SESSION['AUTH']['id'] != $user['id']){ ?>
+
                             <?php if($user['role']==0){ ?>
                                 <a href="changeRole.php?role=<?php echo $user['role'];?>&id=<?php echo $user['id'];?>" class="btn btn-danger btn-sm">取消管理員</a>
                             <?php }else{ ?>
                                 <a href="changeRole.php?role=<?php echo $user['role'];?>&id=<?php echo $user['id'];?>" class="btn btn-success btn-sm">設定管理員</a>
+                            <?php } ?>
+                            
                             <?php } ?>
                         </td>
                     </tr>
