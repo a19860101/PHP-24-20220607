@@ -12,6 +12,10 @@
                 <?php echo $post['body']; ?>
             </div>
             <div>
+                <a href="post/show.php?id=<?php echo $post['id'];?>">繼續閱讀</a>
+
+            </div>
+            <div>
                 最後更新時間:<?php echo $post['updated_at']; ?>
             </div>
         </div>
