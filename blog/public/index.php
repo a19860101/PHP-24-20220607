@@ -4,18 +4,10 @@
     $posts = Post::index();
     
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php foreach($posts as $post){ ?>
-        <div>
-            <h2><?php echo $post['title'];?></h2>
+<?php include('template/header.php');?>
+<?php foreach($posts as $post){ ?>
+    <div>
+        <h2><?php echo $post['title'];?></h2>
             <div>
                 <?php echo $post['body']; ?>
             </div>
@@ -24,5 +16,4 @@
             </div>
         </div>
     <?php } ?>
-</body>
-</html>
+<?php include('template/footer.php');?>
