@@ -18,7 +18,7 @@
             }
             return $pdo;
         }
-        function now(){
+        static function now(){
             date_default_timezone_set('Asia/Taipei');
             $now = date('y-m-d H:i:s');
             return $now;
