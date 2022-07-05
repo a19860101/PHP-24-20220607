@@ -2,7 +2,7 @@
     namespace Gjun\Blog\Config;
     use PDO;
     class DB {
-        function pdo(){
+        static function pdo(){
             $db_host = 'localhost';
             $db_user = 'admin';
             $db_pw = 'admin';
