@@ -25,6 +25,12 @@
             $data = $stmt->fetch();
             return $data;
         }
+        static function update($request){
+            extract($request);
+            $sql = 'UPDATE posts SET title=?,body=?,category_id=?,updated_at=? WHERE id = ?';
+            $stmt = DB::pdo()->prepare($sql);
+            $stmt->execute([$title,$body,$category_id,DB::now(),$id]);
+        }
         static function store($request){
             extract($request);
             $sql = '

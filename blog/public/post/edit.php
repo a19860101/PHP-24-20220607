@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-12">
             <h2>編輯文章</h2>
-            <form action="store.php" method="post">
+            <form action="update.php" method="post">
                 <div class="mb-3">
                     <label for="" class="form-label">標題</label>
                     <input type="text" name="title" class="form-control" value="<?php echo $post['title'];?>">
@@ -26,7 +26,9 @@
                         <option value="4" <?php echo $post['category_id'] == 4 ? 'selected':'' ;?>>娛樂</option>
                     </select>
                 </div>
+                <input type="hidden" value="<?php echo $post['id']; ?>" name="id">
                 <input type="submit" value="更新文章" class="btn btn-primary">
+                <input type="button" value="取消" class="btn btn-secondary" onclick="history.back()">
             </form>
         </div>
     </div>

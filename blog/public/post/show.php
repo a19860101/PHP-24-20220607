@@ -14,7 +14,7 @@
             <div>
                 最後更新時間 <?php echo $post['updated_at']; ?>
             </div>
-            <a href="#" class="btn btn-dark" onclick="history.back()">回上頁</a>
+            <a href="../index.php" class="btn btn-dark">文章列表</a>
             <a href="edit.php?id=<?php echo $post['id'];?>" class="btn btn-success">編輯文章</a>
             <form action="delete.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $post['id'];?>">
