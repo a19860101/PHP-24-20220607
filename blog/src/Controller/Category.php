@@ -1,5 +1,6 @@
 <?php
     namespace Gjun\Blog\Controller;
+    use Gjun\Blog\Config\DB;
 
     class Category {
         static function index(){
@@ -15,28 +16,14 @@
             $data = $stmt->fetch();
             return $data;
         }
-        static function edit($request){
-            extract($request);
-            $sql = 'SELECT * FROM categories WHERE id = ?';
-            $stmt = DB::pdo()->prepare($sql);
-            $stmt->execute([$id]);
-            $data = $stmt->fetch();
-            return $data;
-        }
-        static function update($request){
-            extract($request);
-            $sql = 'UPDATE categories SET title=?,body=?,category_id=?,updated_at=? WHERE id = ?';
-            $stmt = DB::pdo()->prepare($sql);
-            $stmt->execute([$title,$body,$category_id,DB::now(),$id]);
-        }
+      
         static function store($request){
             extract($request);
             $sql = '
-                INSERT INTO categories(title,body,category_id,user_id,created_at,updated_at)
-                VALUES(?,?,?,?,?,?)';
+                INSERT INTO categories(title,slug,created_at,updated_at)
+                VALUES(?,?,?,?)';
             $stmt = DB::pdo()->prepare($sql);
-            $user_id = 1;
-            $stmt->execute([$title,$body,$category_id,$user_id,DB::now(),DB::now()]);
+            $stmt->execute([$title,$slug,DB::now(),DB::now()]);
         }
         static function delete($request){
             extract($request);
