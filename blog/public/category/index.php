@@ -30,7 +30,10 @@
             <ul class="list-group">
                 <?php foreach($categories as $category){ ?>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <?php echo $category['title']; ?>
+                    <span>
+                        #<?php echo $category['id'];?> 
+                        <?php echo $category['title']; ?>
+                    </span>
                     <form action="delete.php" method="post">
                         <input type="hidden" name="id" value="<?php echo $category['id'];?>">
                         <input type="submit" value="刪除" class="btn btn-sm btn-danger" onclick="return confirm('確認刪除？')">
