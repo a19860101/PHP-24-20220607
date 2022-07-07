@@ -1,3 +1,6 @@
+<?php
+    $webroot = 'http://localhost/php-24-20220607/blog/public';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +11,10 @@
 </head>
 <body>
     <nav>
-        <a href="#" class="logo">Logo</a>
+        <a href="<?php echo $webroot; ?>" class="logo">Logo</a>
         <div>
-            <a href="post/create.php">建立文章</a>
+            <a href="<?php echo $webroot; ?>/post/create.php">建立文章</a>
+            <a href="<?php echo $webroot; ?>/category/index.php">分類管理</a>
         </div>
         <div>
             <a href="#">註冊</a>
