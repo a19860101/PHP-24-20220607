@@ -32,17 +32,19 @@
             $user = $stmt->fetch();
             
             if(!$user){
-                echo '<script>alert("Email不存在，請重新登入或註冊")</script>';
-                header('refresh:0;url=index.php');
-                return ;
+                // echo '<script>alert("Email不存在，請重新登入或註冊")</script>';
+                // header('refresh:0;url=index.php');
+                return  1;
             }
     
             if(password_verify($pw,$user['pw'])){
                 $_SESSION['AUTH'] = $user;
             }else{
-                echo '<script>alert("帳號或密碼錯誤")</script>';
-                header('refresh:0;url=login.php');
+                // echo '<script>alert("帳號或密碼錯誤")</script>';
+                // header('refresh:0;url=login.php');
+                return 2;
             }
+            return 0;
         }
         static function index(){
             $sql = 'SELECT * FROM users';
