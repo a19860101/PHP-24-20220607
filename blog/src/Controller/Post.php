@@ -11,13 +11,21 @@
                     ON posts.category_id = categories.id
                     LEFT JOIN users
                     ON posts.user_id = users.id
+                    ORDER BY posts.id DESC
                     ';
             $data = DB::pdo()->query($sql)->fetchAll();
             return $data;
         }
         static function show($request){
             extract($request);
-            $sql = 'SELECT * FROM posts WHERE id = ?';
+            $sql = 'SELECT posts.*,users.email,categories.title AS category_title 
+                    FROM posts 
+                    LEFT JOIN categories 
+                    ON posts.category_id = categories.id
+                    LEFT JOIN users
+                    ON posts.user_id = users.id
+                    WHERE posts.id = ?
+                    ';
             $stmt = DB::pdo()->prepare($sql);
             $stmt->execute([$id]);
             $data = $stmt->fetch();
