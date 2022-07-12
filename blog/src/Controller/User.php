@@ -62,9 +62,15 @@
             if(!session_id()){
                 session_start();
             }
-            if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
-                header('location:index.php');
+            if(!isset($_SESSION['AUTH'])){
+
+                $page = 'http://localhost/php-24-20220607/blog/public/template/403.php';
+                header('location:'.$page);
                 return;
             }
+            // if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
+            //     header('location:index.php');
+            //     return;
+            // }
         }
     }

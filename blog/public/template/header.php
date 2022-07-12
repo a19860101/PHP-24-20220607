@@ -30,9 +30,11 @@
                 <li class="nav-item">
                     <a href="<?php echo $webroot; ?>/post/create.php" class="nav-link">建立文章</a>
                 </li>
+                <?php if($_SESSION['AUTH']['role'] == 0){ ?>
                 <li class="nav-item">
                     <a href="<?php echo $webroot; ?>/category/index.php" class="nav-link">分類管理</a>
                 </li>
+                <?php } ?>
                 <?php } ?>
             </ul>
             <ul class="navbar-nav ms-auto">

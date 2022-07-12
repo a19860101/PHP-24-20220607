@@ -1,6 +1,8 @@
 <?php
     include('../../vendor/autoload.php');
     use Gjun\Blog\Controller\Category;
+    use Gjun\Blog\Controller\User;
+    User::denied();
 
     $categories = Category::index();
 ?>
