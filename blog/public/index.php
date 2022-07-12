@@ -11,6 +11,9 @@
         <div class="col-12 rounded-3 p-4" style="background-color:#eee">
             <h2><?php echo $post['title'];?></h2>
             <div class="mb-3">
+                <?php echo $post['email']; ?>
+            </div>
+            <div class="mb-3">
                 分類:<b><?php echo $post['category_title']; ?></b>
             </div>
             <div>

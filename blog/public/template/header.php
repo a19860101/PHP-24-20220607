@@ -26,12 +26,14 @@
                 <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="<?php echo $webroot; ?>">文章列表</a>
                 </li>
+                <?php if(isset($_SESSION['AUTH'])){ ?>
                 <li class="nav-item">
                     <a href="<?php echo $webroot; ?>/post/create.php" class="nav-link">建立文章</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo $webroot; ?>/category/index.php" class="nav-link">分類管理</a>
                 </li>
+                <?php } ?>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <?php if(!isset($_SESSION['AUTH'])){ ?>
