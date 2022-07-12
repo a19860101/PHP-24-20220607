@@ -1,4 +1,7 @@
 <?php
+    if(!session_id()){
+        session_start();
+    }
     $webroot = 'http://localhost/php-24-20220607/blog/public';
 ?>
 <!DOCTYPE html>
@@ -35,7 +38,7 @@
                     <a href="<?php echo $webroot; ?>/user/register.php" class="nav-link">註冊</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">登入</a>
+                    <a href="<?php echo $webroot; ?>/user/login.php" class="nav-link">登入</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">登出</a>
@@ -44,3 +47,8 @@
         </div>
     </div>
 </nav>
+<?php 
+if(isset($_SESSION['AUTH'])){
+    echo $_SESSION['AUTH']['email'].'已登入';
+}
+?>

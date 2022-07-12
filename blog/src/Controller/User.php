@@ -23,11 +23,11 @@
     
             return $stmt->rowCount() > 0 ? 1 : 0;
         }
-        function auth($request){
+        static function auth($request){
             session_start();
             extract($request);
             $sql = 'SELECT * FROM users WHERE email = ?';
-            $stmt = pdo()->prepare($sql);
+            $stmt = DB::pdo()->prepare($sql);
             $stmt->execute([$email]);
             $user = $stmt->fetch();
             
@@ -39,26 +39,24 @@
     
             if(password_verify($pw,$user['pw'])){
                 $_SESSION['AUTH'] = $user;
-                echo '<script>alert("登入成功")</script>';
-                header('refresh:0;url=index.php');
             }else{
                 echo '<script>alert("帳號或密碼錯誤")</script>';
                 header('refresh:0;url=login.php');
             }
         }
-        function index(){
+        static function index(){
             $sql = 'SELECT * FROM users';
-            $result = pdo()->query($sql)->fetchAll();
+            $result = DB::pdo()->query($sql)->fetchAll();
             return $result;
         }
-        function changeRole($request){
+        static function changeRole($request){
             extract($request);
             $sql = 'UPDATE users SET role=? WHERE id=?';
-            $stmt = pdo()->prepare($sql);
+            $stmt = DB::pdo()->prepare($sql);
             $role = $role == 0 ? 1 : 0;
             $stmt->execute([$role,$id]);
         }
-        function denied(){
+        static function denied(){
             if(!session_id()){
                 session_start();
             }
