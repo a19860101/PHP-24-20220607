@@ -2,21 +2,21 @@
     namespace Gjun\Blog\Controller;
     use Gjun\Blog\Config\DB;
     class User {
-        function store($request){
+        static function store($request){
             extract($request);
             if($email == '' || $pw == ''){
                 return 1;
             }
-            if(checkMail($email) != 0){
+            if(User::checkMail($email) != 0){
                 return 2;
             }
             $sql = 'INSERT INTO users(email,pw,created_at)VALUES(?,?,?)';
             $stmt = DB::pdo()->prepare($sql);
             $pw = password_hash($pw,PASSWORD_DEFAULT);
-            $stmt->execute([$email,$pw,now()]);
+            $stmt->execute([$email,$pw,DB::now()]);
             return 0;
         }
-        function checkMail($email){
+        static function checkMail($email){
             $sql = 'SELECT * FROM users WHERE email = ?';
             $stmt = DB::pdo()->prepare($sql);
             $stmt->execute([$email]);
