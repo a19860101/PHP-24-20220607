@@ -47,6 +47,7 @@
          return;
      }
  
+     
      // Accept upload if there was no origin, or if it is an accepted origin
      $filetowrite = $imageFolder . $temp['name'];
      move_uploaded_file($temp['tmp_name'], $filetowrite);
