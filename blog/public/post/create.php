@@ -28,7 +28,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">內文</label>
-                    <textarea name="body" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 
                 <input type="submit" value="建立文章" class="btn btn-primary">
@@ -37,3 +37,9 @@
     </div>
 </div>
 <?php include('../template/footer.php'); ?>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#body'
+    });
+</script>
