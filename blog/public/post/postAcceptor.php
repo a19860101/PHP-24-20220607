@@ -1,61 +1,66 @@
 <?php
-    extract($_FILES['img']);
-    extract($_REQUEST);
-
-    $img_name = md5(time()); //建立亂數檔名
-    $ext = pathinfo($name,PATHINFO_EXTENSION); //取得副檔名
-    $fullname = $img_name.'.'.$ext; //合併檔名+副檔名
-
-    if($title == ''){
-        $title = $name;
-    }
-
-
-    //判斷圖片格式
-    if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'png'){
-        echo '<script>alert("請上傳正確的圖片格式")</script>';
-        header('refresh:0;url=form.php');
-        return ;
-        // 終止下面的動作
-    }
-
-
-    $folder = 'images/'; //上傳路徑
-    $target = $folder.$fullname; // 目標路徑
-    if(!is_dir($folder)){
-        mkdir($folder);
-        //若資料夾不存在就建立資料夾
-    }
-
-    switch($error){
-        case 0:
-            if(move_uploaded_file($tmp_name,$target)){
-                echo '<script>alert("上傳成功")</script>';
-            }else{
-                echo '<script>alert("上傳失敗")</script>';
-            }
-            break;
-        case 1:
-            echo '上傳檔案過大(伺服器限制)';
-            break;
-        // 不會顯示出來 會直接報錯
-        case 2:
-            echo '上傳檔案過大(表單限制)';
-            break;
-        case 3:
-            echo '只有部分上傳';
-            break;
-        case 4:
-            echo '請選擇檔案';
-            break;
-        case 6:
-            echo '遺失暫存資料夾';
-            break;
-        case 7:
-            echo '無法寫入';
-            break;
-        case 8:
-            echo '不支援檔案上傳';
-            break;
-        
-    }
+   /***************************************************
+    * Only these origins are allowed to upload images *
+    ***************************************************/
+   $accepted_origins = array("http://localhost", "http://192.168.1.1", "http://example.com");
+ 
+   /*********************************************
+    * Change this line to set the upload folder *
+    *********************************************/
+   $imageFolder = "images/";
+ 
+   if (isset($_SERVER['HTTP_ORIGIN'])) {
+     // same-origin requests won't set an origin. If the origin is set, it must be valid.
+     if (in_array($_SERVER['HTTP_ORIGIN'], $accepted_origins)) {
+       header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+     } else {
+       header("HTTP/1.1 403 Origin Denied");
+       return;
+     }
+   }
+ 
+   // Don't attempt to process the upload on an OPTIONS request
+   if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+     header("Access-Control-Allow-Methods: POST, OPTIONS");
+     return;
+   }
+ 
+   reset ($_FILES);
+   $temp = current($_FILES);
+   if (is_uploaded_file($temp['tmp_name'])){
+     /*
+       If your script needs to receive cookies, set images_upload_credentials : true in
+       the configuration and enable the following two headers.
+     */
+     // header('Access-Control-Allow-Credentials: true');
+     // header('P3P: CP="There is no P3P policy."');
+ 
+     // Sanitize input
+     if (preg_match("/([^\w\s\d\-_~,;:\[\]\(\).])|([\.]{2,})/", $temp['name'])) {
+         header("HTTP/1.1 400 Invalid file name.");
+         return;
+     }
+ 
+     // Verify extension
+     if (!in_array(strtolower(pathinfo($temp['name'], PATHINFO_EXTENSION)), array("gif", "jpg", "png"))) {
+         header("HTTP/1.1 400 Invalid extension.");
+         return;
+     }
+ 
+     // Accept upload if there was no origin, or if it is an accepted origin
+     $filetowrite = $imageFolder . $temp['name'];
+     move_uploaded_file($temp['tmp_name'], $filetowrite);
+ 
+     // Determine the base URL
+     $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https://" : "http://";
+     $baseurl = $protocol . $_SERVER["HTTP_HOST"] . rtrim(dirname($_SERVER['REQUEST_URI']), "/") . "/";
+ 
+     // Respond to the successful upload with JSON.
+     // Use a location key to specify the path to the saved image resource.
+     // { location : '/your/uploaded/image/file'}
+     echo json_encode(array('location' => $baseurl . $filetowrite));
+   } else {
+     // Notify editor that the upload failed
+     header("HTTP/1.1 500 Server Error");
+   }
+ ?>
