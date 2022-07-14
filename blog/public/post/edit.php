@@ -30,7 +30,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">內文</label>
-                    <textarea name="body" id="" cols="30" rows="10" class="form-control"><?php echo $post['body'];?></textarea>
+                    <textarea name="body" id="body" cols="30" rows="10" class="form-control"><?php echo $post['body'];?></textarea>
                 </div>
                 
                 <input type="hidden" value="<?php echo $post['id']; ?>" name="id">
@@ -40,4 +40,6 @@
         </div>
     </div>
 </div>
+
+<?php include('../template/tinymce.php'); ?>
 <?php include('../template/footer.php'); ?>
