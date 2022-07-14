@@ -1,8 +1,11 @@
 <?php
     include('../../vendor/autoload.php'); 
     use Gjun\Blog\Controller\Category;
-    use Gjun\Blog\Controller\User;
-    User::denied();
+    use Gjun\Blog\Controller\Role;
+    
+    $role = new Role;
+    $role->isUser();
+    
     $categories = Category::index();
 ?>
 <?php include('../template/header.php'); ?>
