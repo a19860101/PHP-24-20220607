@@ -15,7 +15,7 @@
         <div>
             {{ $post->body }}
         </div>
-        <a href="#">繼續閱讀</a>
+        <a href="/post/{{$post->id}}">繼續閱讀</a>
         <div>
             建立時間 {{ $post->created_at }}
         </div>
