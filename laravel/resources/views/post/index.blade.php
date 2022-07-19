@@ -8,5 +8,19 @@
 </head>
 <body>
     <h1>Post Index</h1>
+
+    @foreach($posts as $post)
+    <div>
+        <h2>{{ $post->title }}</h2>
+        <div>
+            {{ $post->body }}
+        </div>
+        <div>
+            建立時間 {{ $post->created_at }}
+        </div>
+    </div>
+    @endforeach
+
+
 </body>
 </html>
