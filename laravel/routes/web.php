@@ -14,5 +14,6 @@ Route::get('/welcome', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/test',[App\Http\Controllers\PostController::class,'test']);
-Route::get('/hello/about',[PostController::class,'hello']);
+
+Route::get('/post',[PostController::class,'index']);
+Route::get('/post/create',[PostController::class,'create']);

@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     //
-    public function test(){
-        return view('welcome');
+    public function index(){
+        // return view('post/index');
+        return view('post.index');
     }
-    public function hello(){
-        return view('about');
+    public function create(){
+        return view('post.create');
     }
 }
