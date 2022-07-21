@@ -23,10 +23,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/post">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{route('post.index')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/post/create">建立文章</a>
+                        <a class="nav-link" href="{{route('post.create')}}">建立文章</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('product.index')}}">商品列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('product.create')}}">新增商品</a>
                     </li>
                 </ul>
             </div>
