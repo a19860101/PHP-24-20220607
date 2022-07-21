@@ -56,4 +56,13 @@ class PostController extends Controller
         // return view('post.show',compact('post'));
         return view('post.show',['post' => $post]);
     }
+    public function destroy($id){
+        //raw
+        // DB::delete('DELETE FROM posts WHERE id = ?',[$id]);
+
+        // query builder
+        DB::table('posts')->delete($id);
+
+        return redirect('/post');
+    }
 }

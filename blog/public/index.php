@@ -17,11 +17,10 @@
                 分類:<b><?php echo $post['category_title']; ?></b>
             </div>
             <div>
-                <?php echo $post['body']; ?>
+                <?php echo strip_tags($post['body']); ?>
             </div>
             <div>
                 <a href="post/show.php?id=<?php echo $post['id'];?>">繼續閱讀</a>
-
             </div>
             <div>
                 最後更新時間:<?php echo $post['updated_at']; ?>

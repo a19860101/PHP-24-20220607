@@ -8,7 +8,9 @@
     * Change this line to set the upload folder *
     *********************************************/
    $imageFolder = "images/";
- 
+    if(!is_dir($imageFolder)){
+      mkdir($imageFolder);
+    }
    if (isset($_SERVER['HTTP_ORIGIN'])) {
      // same-origin requests won't set an origin. If the origin is set, it must be valid.
      if (in_array($_SERVER['HTTP_ORIGIN'], $accepted_origins)) {
@@ -58,7 +60,7 @@
      // Respond to the successful upload with JSON.
      // Use a location key to specify the path to the saved image resource.
      // { location : '/your/uploaded/image/file'}
-     echo json_encode(array('location' => $baseurl . $filetowrite));
+     echo json_encode(array('location' =>  $baseurl . $filetowrite));
    } else {
      // Notify editor that the upload failed
      header("HTTP/1.1 500 Server Error");
