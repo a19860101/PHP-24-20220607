@@ -9,7 +9,7 @@
 <body>
     <h1>Edit Post</h1>
 
-    <form action="" method="post">
+    <form action="/post/{{$post->id}}" method="post">
         @csrf
         @method('patch')
         <div>
