@@ -65,4 +65,8 @@ class PostController extends Controller
 
         return redirect('/post');
     }
+    public function edit($id){
+        $post = DB::table('posts')->find($id);
+        return view('post.edit',compact('post'));
+    }
 }
