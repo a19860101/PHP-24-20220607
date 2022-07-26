@@ -11,12 +11,12 @@
                 <img src="https://picsum.photos/id/33/600/400" alt="" class="w-100">
                 <div class="p-4">
                     <h4>
-                        <a href="#">
+                        <a href="/product/{{$product->id}}">
                             {{$product->title}}
                         </a>
                     </h4>
                     <div>
-                        {{$product->sale}}
+                        {{$product->price}}
                     </div>
                     <div>
                         <button class="btn btn-primary">加入購物車</button>
