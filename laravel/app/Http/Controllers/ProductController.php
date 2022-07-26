@@ -36,16 +36,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $post = new Product;
-        $post->title = $request-> title;
-        $post->desc = $request-> desc;
-        $post->price = $request-> price;
-        $post->sale = $request-> sale;
-        $post->started_at = $request-> started_at;
-        $post->ended_at = $request-> ended_at;
-        $post->save();
+        // 方法一
+        // $product = new Product;
+        // $product->title = $request-> title;
+        // $product->desc = $request-> desc;
+        // $product->price = $request-> price;
+        // $product->sale = $request-> sale;
+        // $product->started_at = $request-> started_at;
+        // $product->ended_at = $request-> ended_at;
+        // $product->save();
 
+        // 方法二
+        // $product = new Product;
+        // $product->fill($request->all());
+        // $product->save();
+
+        // 方法三
+        Product::create($request->all());
         return redirect()->route('product.index');
     }
 
