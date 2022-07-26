@@ -14,6 +14,8 @@
                         <th>特價</th>
                         <th>上架日期</th>
                         <th>下架日期</th>
+                        <th>資料建立時間</th>
+                        <th>資料更新時間</th>
                         <th>動作</th>
                     </tr>
                     @foreach($products as $product)
@@ -24,6 +26,9 @@
                         <td>{{$product->sale}}</td>
                         <td>{{$product->started_at}}</td>
                         <td>{{$product->ended_at}}</td>
+                        <td>{{$product->created_at}}</td>
+                        <td>{{$product->updated_at}}</td>
+
                         <td>
                             <a href="{{route('product.edit',[$product->id])}}" class="btn btn-info btn-sm">編輯</a>
                             <a href="{{route('product.edit',['product' => $product->id])}}" class="btn btn-info btn-sm">編輯</a>
