@@ -26,6 +26,7 @@
                         <td>{{$product->ended_at}}</td>
                         <td>
                             <a href="{{route('product.edit',[$product->id])}}" class="btn btn-info btn-sm">編輯</a>
+                            <a href="{{route('product.edit',['product' => $product->id])}}" class="btn btn-info btn-sm">編輯</a>
                             <form action="" class="d-inline-block">
                                 <input type="submit" class="btn btn-danger btn-sm" value="刪除">
                             </form>
