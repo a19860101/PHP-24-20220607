@@ -32,8 +32,10 @@
                         <td>
                             <a href="{{route('product.edit',[$product->id])}}" class="btn btn-info btn-sm">編輯</a>
                             <a href="{{route('product.edit',['product' => $product->id])}}" class="btn btn-info btn-sm">編輯</a>
-                            <form action="" class="d-inline-block">
-                                <input type="submit" class="btn btn-danger btn-sm" value="刪除">
+                            <form action="{{route('product.destroy',[$product->id])}}" method="post" class="d-inline-block">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" class="btn btn-danger btn-sm" value="刪除" onclick="return confirm('確認刪除？')">
                             </form>
                         </td>
                     </tr>
