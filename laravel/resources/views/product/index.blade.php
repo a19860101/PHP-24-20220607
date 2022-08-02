@@ -8,7 +8,8 @@
         @foreach($products as $product)
         <div class="col-xl-3">
             <div class="border rounded-2 overflow-hidden">
-                <img src="https://picsum.photos/id/33/600/400" alt="" class="w-100">
+                {{-- <img src="/images/{{$product->cover}}" alt="" class="w-100"> --}}
+                <img src="{{asset('images/'.$product->cover)}}" alt="" class="w-100">
                 <div class="p-4">
                     <h4>
                         <a href="/product/{{$product->id}}">
