@@ -28,7 +28,8 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('product.create');
+        $categories = \App\Models\Category::get();
+        return view('product.create',compact('categories'));
     }
 
     /**

@@ -20,6 +20,14 @@
                         <input type="file" class="form-control" name="cover">
                     </div>
                     <div class="mb-3">
+                        <label for="" class="form-label">商品分類</label>
+                        <select name="category_id" id="" class="form-select">
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="" class="form-label">原價</label>
                         <input type="text" class="form-control" name="price">
                     </div>
