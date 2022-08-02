@@ -38,6 +38,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        return $request->file('cover')->store('img_test','public');
+
         // 方法一
         // $product = new Product;
         // $product->title = $request-> title;
