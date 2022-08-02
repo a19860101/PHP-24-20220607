@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Str;
 
 class ProductController extends Controller
 {
@@ -38,7 +39,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->file('cover')->store('img_test','public');
+        // return $request->file('cover')->store('images','public');
+        // return $request->file('cover')->storeAs('qqq','test.jpg','public');
+
+        $ext = $request->file('cover')->getClientOriginalExtension();
+        $img = Str::uuid().'.'.$ext;
+        $request->file('cover')->storeAs('images',$img,'public');
+        return;
 
         // 方法一
         // $product = new Product;
