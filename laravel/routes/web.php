@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 
 Route::get('/', function(){
@@ -27,3 +28,5 @@ Route::patch('/post/{id}',[PostController::class,'update'])->name('post.update')
 Route::resource('/product',ProductController::class);
 
 Route::get('admin/product',[ProductController::class, 'list'])->name('admin.product');
+
+Route::resource('/category',CategoryController::class);
