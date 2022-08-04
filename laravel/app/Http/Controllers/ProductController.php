@@ -133,7 +133,8 @@ class ProductController extends Controller
     }
     public function list(){
         $products = Product::orderBy('id','DESC')->get();
-        return view('product.list',compact('products'));
+        $trashes = Product::onlyTrashed()->get();
+        return view('product.list',compact('products','trashes'));
     }
     public function productCategory($category_id){
         $products = Product::where('category_id',$category_id)->get();
