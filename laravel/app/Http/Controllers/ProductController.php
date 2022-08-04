@@ -141,4 +141,8 @@ class ProductController extends Controller
         $category = Category::find($category_id);
         return view('product.productCategory',compact('products','category'));
     }
+    public function productRestore($id){
+        Product::onlyTrashed()->find($id)->restore();
+        return redirect()->back();
+    }
 }

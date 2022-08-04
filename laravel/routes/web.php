@@ -32,3 +32,5 @@ Route::get('/product/category/{category_id}',[ProductController::class, 'product
 Route::get('admin/product',[ProductController::class, 'list'])->name('admin.product');
 
 Route::resource('/category',CategoryController::class);
+
+Route::get('/product/restore/{id}',[ProductController::class, 'productRestore'])->name('product.restore');

@@ -52,11 +52,6 @@
                     <tr>
                         <th>#</th>
                         <th>商品名稱</th>
-                        <th>分類</th>
-                        <th>售價</th>
-                        <th>特價</th>
-                        <th>上架日期</th>
-                        <th>下架日期</th>
                         <th>資料建立時間</th>
                         <th>資料更新時間</th>
                         <th>動作</th>
@@ -65,16 +60,11 @@
                     <tr>
                         <td>{{$trash->id}}</td>
                         <td>{{$trash->title}}</td>
-                        <td>{{$trash->category->title}}</td>
-                        <td>{{$trash->price}}</td>
-                        <td>{{$trash->sale}}</td>
-                        <td>{{$trash->started_at}}</td>
-                        <td>{{$trash->ended_at}}</td>
                         <td>{{$trash->created_at}}</td>
                         <td>{{$trash->updated_at}}</td>
 
                         <td>
-
+                            <a href="{{route('product.restore',[$trash->id])}}" class="btn btn-primary btn-sm">還原</a>
                         </td>
                     </tr>
                     @endforeach
