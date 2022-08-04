@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Str;
 
@@ -133,5 +134,10 @@ class ProductController extends Controller
     public function list(){
         $products = Product::orderBy('id','DESC')->get();
         return view('product.list',compact('products'));
+    }
+    public function productCategory($category_id){
+        $products = Product::where('category_id',$category_id)->get();
+        $category = Category::find($category_id);
+        return view('product.productCategory',compact('products','category'));
     }
 }

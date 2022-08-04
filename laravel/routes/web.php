@@ -26,6 +26,8 @@ Route::get('post/{id}/edit',[PostController::class,'edit'])->name('post.edit');
 Route::patch('/post/{id}',[PostController::class,'update'])->name('post.update');
 
 Route::resource('/product',ProductController::class);
+Route::get('/product/category/{category_id}',[ProductController::class, 'productCategory'])->name('productCategory');
+
 
 Route::get('admin/product',[ProductController::class, 'list'])->name('admin.product');
 
