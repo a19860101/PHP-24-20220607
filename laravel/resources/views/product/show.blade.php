@@ -14,8 +14,12 @@
             <div>
                 {{$product->desc}}
             </div>
-            <div>
-                {{$product->price}}
+            <div class="my-3">
+                @if($product->sale)
+                原價<del>{{$product->price}}</del> 特價<b class="text-danger">{{$product->sale}}</b>
+                @else
+                <b>售價{{$product->price}}</b>
+                @endif
             </div>
         </div>
     </div>
