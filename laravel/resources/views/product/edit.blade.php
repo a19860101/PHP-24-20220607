@@ -17,6 +17,15 @@
                         <input type="text" class="form-control" name="title" value="{{$product->title}}">
                     </div>
                     <div class="mb-3">
+                        <label for="" class="form-label">商品分類</label>
+                        <select name="category_id" id="" class="form-select">
+                            <option>未分類</option>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected':''}}>{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="" class="form-label">原價</label>
                         <input type="text" class="form-control" name="price" value="{{$product->price}}">
                     </div>

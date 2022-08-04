@@ -97,7 +97,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        return view('product.edit',compact('product'));
+        $categories = \App\Models\Category::get();
+
+        return view('product.edit',compact('product','categories'));
     }
 
     /**
