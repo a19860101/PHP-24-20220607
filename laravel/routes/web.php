@@ -34,3 +34,4 @@ Route::get('admin/product',[ProductController::class, 'list'])->name('admin.prod
 Route::resource('/category',CategoryController::class);
 
 Route::get('/product/restore/{id}',[ProductController::class, 'productRestore'])->name('product.restore');
+Route::delete('/product/forceDelete/{id}',[ProductController::class, 'productForceDelete'])->name('product.forceDelete');

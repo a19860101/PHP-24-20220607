@@ -64,6 +64,11 @@
                         <td>{{$trash->updated_at}}</td>
 
                         <td>
+                            <form action="{{route('product.forceDelete',[$trash->id])}}" method="post" class="d-inline-block">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" class="btn btn-danger btn-sm" onclick="return confirm('確認刪除?')" value="永久刪除">
+                            </form>
                             <a href="{{route('product.restore',[$trash->id])}}" class="btn btn-primary btn-sm">還原</a>
                         </td>
                     </tr>

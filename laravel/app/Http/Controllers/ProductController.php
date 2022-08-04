@@ -145,4 +145,10 @@ class ProductController extends Controller
         Product::onlyTrashed()->find($id)->restore();
         return redirect()->back();
     }
+    public function productForceDelete($id){
+
+        Product::onlyTrashed()->find($id)->forceDelete();
+        return redirect()->back();
+
+    }
 }
