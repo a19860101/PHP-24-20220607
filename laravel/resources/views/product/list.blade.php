@@ -10,6 +10,7 @@
                     <tr>
                         <th>#</th>
                         <th>商品名稱</th>
+                        <th>分類</th>
                         <th>售價</th>
                         <th>特價</th>
                         <th>上架日期</th>
@@ -22,6 +23,7 @@
                     <tr>
                         <td>{{$product->id}}</td>
                         <td>{{$product->title}}</td>
+                        <td>{{$product->category->title}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->sale}}</td>
                         <td>{{$product->started_at}}</td>

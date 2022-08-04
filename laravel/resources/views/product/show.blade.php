@@ -10,6 +10,7 @@
         </div>
         <div class="col-lg-6">
             <h3>{{$product->title}}</h3>
+            <div>分類:<span class="badge bg-secondary">{{$product->category->title}}</span></div>
             <div>
                 {{$product->desc}}
             </div>

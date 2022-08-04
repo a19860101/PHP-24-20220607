@@ -16,6 +16,7 @@
                             {{$product->title}}
                         </a>
                     </h4>
+                    <div>分類:<span class="badge bg-secondary">{{$product->category->title}}</span></div>
                     <div>
                         {{$product->price}}
                     </div>
