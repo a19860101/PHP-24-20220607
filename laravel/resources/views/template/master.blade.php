@@ -25,9 +25,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('post.index')}}">Home</a>
                     </li>
+                    @can('admin')
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('post.create')}}">建立文章</a>
                     </li>
+                    @endcan
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('product.index')}}">商品列表</a>
                     </li>
