@@ -48,6 +48,28 @@
                     </li>
                     @endguest
                 </ul>
+                <ul class="navbar-nav ms-auto">
+                    @guest
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">註冊</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">登入</a>
+                    </li>
+                    @endguest
+                    @auth
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="nav-link" href="route('logout')"
+                                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                {{ __('登出') }}
+                            </a>
+                        </form>
+                    </li>
+                    @endauth
+                </ul>
             </div>
         </div>
     </nav>
