@@ -31,6 +31,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('product.index')}}">商品列表</a>
                     </li>
+                    @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('product.create')}}">新增商品</a>
                     </li>
@@ -40,6 +41,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('category.create')}}">商品分類管理</a>
                     </li>
+                    @endauth
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">訪客測試</a>
+                    </li>
+                    @endguest
                 </ul>
             </div>
         </div>
