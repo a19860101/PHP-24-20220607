@@ -26,12 +26,17 @@ Route::get('/about', function () {
 });
 
 Route::get('/post',[PostController::class,'index'])->name('post.index');
-Route::get('/post/create',[PostController::class,'create'])->name('post.create');
-Route::post('/post',[PostController::class,'store'])->name('post.store');
+
 Route::get('/post/{id}',[PostController::class,'show'])->name('post.show');
-Route::delete('/post/{id}',[PostController::class,'destroy'])->name('post.destroy');
-Route::get('post/{id}/edit',[PostController::class,'edit'])->name('post.edit');
-Route::patch('/post/{id}',[PostController::class,'update'])->name('post.update');
+
+
+Route::middleware(['can:admin'])->group(function(){
+    Route::get('/post/create',[PostController::class,'create'])->name('post.create');//中介層
+    Route::post('/post',[PostController::class,'store'])->name('post.store');
+    Route::delete('/post/{id}',[PostController::class,'destroy'])->name('post.destroy');
+    Route::get('post/{id}/edit',[PostController::class,'edit'])->name('post.edit');
+    Route::patch('/post/{id}',[PostController::class,'update'])->name('post.update');
+});
 
 Route::resource('/product',ProductController::class);
 Route::get('/product/category/{category_id}',[ProductController::class, 'productCategory'])->name('productCategory');
