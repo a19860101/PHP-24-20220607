@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class PostController extends Controller
 {
@@ -36,6 +37,7 @@ class PostController extends Controller
         DB::table('posts')->insert([
             'title'         => $request->title,
             'body'          => $request->body,
+            'user_id'       => Auth::id(),
             'created_at'    => now(),
             'updated_at'    => now(),
         ]);
