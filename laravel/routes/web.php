@@ -27,7 +27,8 @@ Route::get('/about', function () {
 
 Route::get('/post',[PostController::class,'index'])->name('post.index');
 
-Route::get('/post/{id}',[PostController::class,'show'])->name('post.show');
+// Route::get('/post/create',[PostController::class,'create'])->name('post.create')->middleware('can:admin');//中介層
+Route::get('/post/{id}',[PostController::class,'show'])->name('post.show')->where('id', '[0-9]+');
 
 
 Route::middleware(['can:admin'])->group(function(){
