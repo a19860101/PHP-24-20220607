@@ -32,6 +32,7 @@
                     <div>
                         <form action="{{route('addToCart')}}" method="post">
                             @csrf
+                            <input type="hidden" value="{{$product->id}}" name="product_id">
                             <input type="submit" value="加入購物車" class="btn btn-primary">
                         </form>
                     </div>
