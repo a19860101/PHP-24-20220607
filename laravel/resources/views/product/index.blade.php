@@ -30,7 +30,10 @@
                         @endif
                     </div>
                     <div>
-                        <button class="btn btn-primary">加入購物車</button>
+                        <form action="{{route('addToCart')}}" method="post">
+                            @csrf
+                            <input type="submit" value="加入購物車" class="btn btn-primary">
+                        </form>
                     </div>
                 </div>
             </div>
