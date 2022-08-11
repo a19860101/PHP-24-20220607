@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -14,7 +15,8 @@ class PostController extends Controller
         // $posts = DB::select('SELECT * FROM posts ORDER BY id DESC');
 
         // query builder
-        $posts = DB::table('posts')->orderBy('id','DESC')->get();
+        // $posts = DB::table('posts')->orderBy('id','DESC')->get();
+        $posts = Post::orderBy('id','DESC')->get();
 
         // return view('post.index')->with(['posts' => $posts]);
         // return view('post.index',['posts' => $posts]);
