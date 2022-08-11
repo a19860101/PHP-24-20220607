@@ -55,7 +55,8 @@ class PostController extends Controller
         // ]);
 
         //query builder
-        $post = DB::table('posts')->find($id);
+        // $post = DB::table('posts')->find($id);
+        $post = Post::find($id);
 
         // return view('post.show',compact('post'));
         return view('post.show',['post' => $post]);
