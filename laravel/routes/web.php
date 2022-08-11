@@ -65,3 +65,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::post('addToCart',[CartController::class,'addToCart'])->name('addToCart');
+Route::get('cart',[CartController::class,'cart'])->name('cart');

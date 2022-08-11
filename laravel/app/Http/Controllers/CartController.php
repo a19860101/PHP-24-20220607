@@ -18,4 +18,9 @@ class CartController extends Controller
 
         return redirect()->back();
     }
+    public function cart(){
+        $carts = Cart::where('user_id',Auth::id())->get();
+
+        return $carts;
+    }
 }
