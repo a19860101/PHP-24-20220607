@@ -28,6 +28,10 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
+        Schema::table('carts',function(Bluepring $table){
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['product_id']);
+        });
         Schema::dropIfExists('carts');
     }
 }
