@@ -10,6 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     @yield('css')
+    <style>
+        .cartNumber {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -59,7 +66,16 @@
                         <a href="/login" class="nav-link">登入</a>
                     </li>
                     @endguest
-                    <li class="nav-item">
+                    <?php
+                        $carts = \App\Models\Cart::where('user_id',Auth::id())->get();
+                        $cartNumber = count($carts);
+                    ?>
+                    <li class="nav-item position-relative">
+                        @if($cartNumber > 0)
+                        <span class="cartNumber position-absolute bg-danger text-white text-center rounded-circle start-50">
+                            {{$cartNumber}}
+                        </span>
+                        @endif
                         <a href="{{route('cart')}}" class="nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
