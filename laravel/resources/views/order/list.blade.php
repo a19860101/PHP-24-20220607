@@ -25,7 +25,7 @@
                         {{$order->orderId}}
                     </td>
                     <td>
-                        <a href="#" class="btn btn-success btn-sm">詳細內容</a>
+                        <a href="{{route('orderDetail',['id'=>$order->id])}}" class="btn btn-success btn-sm">詳細內容</a>
                     </td>
                 </tr>
                 @endforeach

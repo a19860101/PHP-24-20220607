@@ -77,3 +77,4 @@ Route::post('checkout',[OrderController::class,'checkout'])->name('checkout');
 
 //訂單列表
 Route::get('orderList',[OrderController::class,'orderList'])->name('orderList');
+Route::get('order/{id}/detail',[OrderController::class,'orderDetail'])->name('orderDetail');

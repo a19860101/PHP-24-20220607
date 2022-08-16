@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Cart;
+use App\Models\OrderDetail;
 use DB;
 use Auth;
 
@@ -34,5 +35,9 @@ class OrderController extends Controller
     public function orderList(){
         $orders = Order::where('user_id',Auth::id())->get();
         return view('order.list',compact('orders'));
+    }
+    public function orderDetail($id){
+        $order_details = OrderDetail::where('order_id',$id)->get();
+        return view('order.detail',compact('order_details'));
     }
 }
