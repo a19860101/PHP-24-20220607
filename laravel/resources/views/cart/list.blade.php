@@ -8,6 +8,7 @@
 
         <div class="col-8">
             <h1>購物車列表</h1>
+            <a href="#" class="btn btn-warning btn-sm">清空購物車</a>
         </div>
         @foreach($carts as $cart)
         <div class="col-8">
@@ -21,9 +22,18 @@
                     <b>售價{{$cart->product->price}}</b>
                     @endif
                 </div>
+                <form action="">
+                    <input type="submit" value="移除" class="btn btn-danger btn-sm">
+                </form>
             </div>
         </div>
         @endforeach
+        <div class="col-8 text-end" >
+            總金額:{{$total}}
+            <form action="">
+                <input type="submit" class="btn btn-primary" value="結帳">
+            </form>
+        </div>
     </div>
 </div>
 @endsection
