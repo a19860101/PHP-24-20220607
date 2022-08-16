@@ -70,6 +70,9 @@
                         $carts = \App\Models\Cart::where('user_id',Auth::id())->get();
                         $cartNumber = count($carts);
                     ?>
+                    <li class="nav-item">
+                        <a href="{{route('orderList')}}" class="nav-link">訂單列表</a>
+                    </li>
                     <li class="nav-item position-relative">
                         @if($cartNumber > 0)
                         <span class="cartNumber position-absolute bg-danger text-white text-center rounded-circle start-50">

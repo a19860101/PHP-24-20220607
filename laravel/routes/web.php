@@ -74,3 +74,6 @@ Route::delete('deleteCartItem/{cart}',[CartController::class,'deleteCartItem'])-
 Route::post('removeCart',[CartController::class,'removeCart'])->name('removeCart');
 // 結帳產生訂單
 Route::post('checkout',[OrderController::class,'checkout'])->name('checkout');
+
+//訂單列表
+Route::get('orderList',[OrderController::class,'orderList'])->name('orderList');

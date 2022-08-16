@@ -31,4 +31,8 @@ class OrderController extends Controller
 
         return redirect()->route('product.index');
     }
+    public function orderList(){
+        $orders = Order::where('user_id',Auth::id())->get();
+        return view('order.list',compact('orders'));
+    }
 }
