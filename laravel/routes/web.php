@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +72,5 @@ Route::get('cart',[CartController::class,'cart'])->name('cart');
 Route::delete('deleteCartItem/{cart}',[CartController::class,'deleteCartItem'])->name('deleteCartItem');
 // 清空購物車
 Route::post('removeCart',[CartController::class,'removeCart'])->name('removeCart');
+// 結帳產生訂單
+Route::post('checkout',[OrderController::class,'checkout'])->name('checkout');

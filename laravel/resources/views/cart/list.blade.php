@@ -43,7 +43,8 @@
         @if(count($carts) != 0)
         <div class="col-8 text-end" >
             總金額:{{$total}}
-            <form action="">
+            <form action="{{route('checkout')}}" method="post">
+                @csrf
                 <input type="submit" class="btn btn-primary" value="結帳">
             </form>
         </div>
