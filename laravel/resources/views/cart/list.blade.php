@@ -22,7 +22,9 @@
                     <b>售價{{$cart->product->price}}</b>
                     @endif
                 </div>
-                <form action="">
+                <form action="{{route('deleteCartItem',[$cart->id])}}" method="post">
+                    @csrf
+                    @method('delete')
                     <input type="submit" value="移除" class="btn btn-danger btn-sm">
                 </form>
             </div>

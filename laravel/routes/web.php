@@ -66,3 +66,6 @@ require __DIR__.'/auth.php';
 
 Route::post('addToCart',[CartController::class,'addToCart'])->name('addToCart');
 Route::get('cart',[CartController::class,'cart'])->name('cart');
+
+// 移除購物車項目
+Route::delete('deleteCartItem/{cart}',[CartController::class,'deleteCartItem'])->name('deleteCartItem');
